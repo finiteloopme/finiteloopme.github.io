@@ -10,10 +10,10 @@ layout: default
 	  	<h2><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h2>
 	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
 		{% for category in post.categories %}
-			<span class="label label-danger">{{ category }}</span>
+			<span class="label label-category">{{ category }}</span>
 		{% endfor %}
 		{% for tag in post.tags %}
-		<span class="label label-default">{{ tag }}</span>
+		<span class="label label-tag">{{ tag }}</span>
 		{% endfor %}
 	  	<p>{{ post.content | strip_html | truncatewords:50 }}</p>
 	  </li>

@@ -4,6 +4,12 @@ layout: default
 <article id="post-page">
 	<h2>{{ page.title }}</h2>
 	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
+	{% for category in page.categories %}
+		<span class="label label-category">{{ category }}</span>
+	{% endfor %}
+	{% for tag in page.tags %}
+	<span class="label label-tag">{{ tag }}</span>
+	{% endfor %}
 	<div class="content">
 
 		{{ content }}
