@@ -33,6 +33,9 @@ custom_header: false
 custom_nav_footer: false
 reverse: false
 
+# Enabling comments via Disqus
+disqus: finiteloopme
+
 redcarpet:
     input: GFM
     syntax_highlighter: rouge
