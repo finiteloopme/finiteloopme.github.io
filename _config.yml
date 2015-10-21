@@ -1,19 +1,19 @@
 # Site settings
-title: Emerald | A simple Jekyll blog
-description: "A minimal blog template, build with Jekyll."
-url: "http://www.jacoporabolini.com/emerald"
+title: Finite Loop
+description: "Thougts on technology"
+url: "http://finiteloop.me"
 author:
-  name: "Jacopo Rabolini"
-  email: "hello@jacoporabolini.com"
-  url: "http://www.jacoporabolini.com"
+  name: "Kunal"
+  twitter: "finiteloopme"
+  url: "http://finiteloop.me"
 
 # Build settings
-baseurl: /emerald/ # Change this to your relative path (ex: /blog/), or leave just a /
-markdown: kramdown
+baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
+markdown: redcarpet
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 8
+paginate: 10
 paginate_path: /page:num/
 
 # Default values
@@ -32,3 +32,7 @@ version: "1.1.0"
 custom_header: false
 custom_nav_footer: false
 reverse: false
+
+redcarpet:
+    input: GFM
+    syntax_highlighter: rouge
