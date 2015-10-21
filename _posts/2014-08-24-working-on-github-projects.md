@@ -1,5 +1,10 @@
 ---
+layout: post
 title: Working with projects on Github
+categories:
+  - technical
+tags:
+  - github
 ---
 
 # Collaborating on Github projects
