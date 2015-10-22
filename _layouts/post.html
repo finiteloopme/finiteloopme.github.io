@@ -5,10 +5,16 @@ layout: default
 	<h2>{{ page.title }}</h2>
 	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
 	{% for category in page.categories %}
-		<span class="label label-category">{{ category }}</span>
+	<a href="/categories/#{{ category }}">
+		<span class="label label-category">
+				{{ category | replace:'-', ' ' }}
+			</span>
+		</a>
+		<span> &nbsp;</span>
 	{% endfor %}
 	{% for tag in page.tags %}
 	<span class="label label-tag">{{ tag }}</span>
+	<span> &nbsp;</span>
 	{% endfor %}
 	<div class="content">
 

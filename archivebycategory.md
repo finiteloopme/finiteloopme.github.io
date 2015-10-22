@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Browse by Category
-permalink: /categoryview/
+permalink: /categories/
 sitemap: false
 ---
 

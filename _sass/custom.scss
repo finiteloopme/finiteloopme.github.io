@@ -11,6 +11,7 @@ $tag-color: #C0C0C0;
 }
 .label-category:hover {
    background-color: darken($category-color, 5%);
+   text-decoration:underline;
 }
 
 .label-tag {
@@ -18,4 +19,5 @@ $tag-color: #C0C0C0;
 }
 .label-tag:hover {
    background-color: darken($tag-color, 5%);
+   text-decoration:underline;
 }
