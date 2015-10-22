@@ -13,7 +13,9 @@ layout: default
 		<span> &nbsp;</span>
 	{% endfor %}
 	{% for tag in page.tags %}
-	<span class="label label-tag">{{ tag }}</span>
+	<a href="/tags/#{{ tag }}">
+		<span class="label label-tag">{{ tag | replace:'-', ' ' }}</span>
+	</a>
 	<span> &nbsp;</span>
 	{% endfor %}
 	<div class="content">
