@@ -8,6 +8,7 @@ $tag-color: #C0C0C0;
 
 .label-category {
    background-color: $category-color;
+   margin-right: 5px;
 }
 .label-category:hover {
    background-color: darken($category-color, 5%);
@@ -16,6 +17,7 @@ $tag-color: #C0C0C0;
 
 .label-tag {
    background-color: $tag-color;
+   margin-right: 5px;
 }
 .label-tag:hover {
    background-color: darken($tag-color, 5%);

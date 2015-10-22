@@ -2,19 +2,20 @@
 layout: post
 title: Working with projects on Github
 categories:
-  - technical
+    - technical
 tags:
-  - github
+    - github
 ---
 
 # Collaborating on Github projects
+
 Its safe to say that [github](http://github.com) is one of the most widely used source code management systems for software development.
 
-Every-time I start working on a new project on github, I always turn to good old [Google](www.google.com) to _get me started_ for the same set of questions.
+Every time I start working on a new project on github, I always turn to good old [Google](www.google.com) to *get me started* for the same set of questions.
 
 So here are the steps that I follow to start working on a project on github:
 
-### 1. [Fork the project code](http://help.github.com/articles/fork-a-repo)
+### 1.	[Fork the project code](http://help.github.com/articles/fork-a-repo)
 
 ```bash
    # Original project
@@ -23,7 +24,7 @@ So here are the steps that I follow to start working on a project on github:
    https://github.com/finiteloopme/apiman
 ```
 
-### 2. Clone your fork
+### 2.	Clone your fork
 
 ```bash
    # Clone the project locally
@@ -34,7 +35,7 @@ So here are the steps that I follow to start working on a project on github:
    git remote add upstream https://github.com/apiman/apiman
 ```
 
-### 3. Contribute fixes and/or features to the project
+### 3.	Contribute fixes and/or features to the project
 
 ```bash
    # Create a branch for a specific issue
@@ -51,4 +52,4 @@ So here are the steps that I follow to start working on a project on github:
    git push origin apiman-issue123
 ```
 
-### 4. Generate a [pull-request](http://help.github.com/articles/using-pull-requests) for your changes
+### 4.	Generate a [pull-request](http://help.github.com/articles/using-pull-requests) for your changes
