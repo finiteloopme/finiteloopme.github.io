@@ -34,5 +34,6 @@ custom_nav_footer: false
 reverse: false
 
 redcarpet:
+    extensions: [ "tables" ]
     input: GFM
     syntax_highlighter: rouge
