@@ -23,3 +23,9 @@ $tag-color: #C0C0C0;
    background-color: darken($tag-color, 5%);
    text-decoration:underline;
 }
+
+h1:before {
+    //border-left: 3px solid $main-color;
+    content: "\002637";
+    color: $main-color;
+}
