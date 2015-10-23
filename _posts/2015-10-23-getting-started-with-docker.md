@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting started with docker
-published: false
+published: true
 categories:
     - technical
 tags:
@@ -9,13 +9,16 @@ tags:
     - how-to
 ---
 
-# Basic setup
+# Getting started with Docker
+This technical writeup should help the reader get started on working with docker.
+
+## Basic setup
 We will be using Mac OSX as the host operating system for this exercise.
 
 1. [Install](https://docs.docker.com/installation/mac/) docker toolbox. We are using version 1.8.3
 2. Launch a docker quickstart terminal - *(docker-terminal)*
 
-# Basic commands
+## Basic commands
 1. List all the current *running* docker containers
 
     ``` bash
@@ -29,7 +32,7 @@ We will be using Mac OSX as the host operating system for this exercise.
 3. Remove (delete) a specific docker image
 
     ``` bash
-    # Delete a docker images
+    # Delete a docker image
     docker rmi DOCKER_IMAGE_ID
     # A command to force delete all the images
     docker images | awk '{print $3}'| xargs docker rmi --force=true
@@ -43,7 +46,7 @@ We will be using Mac OSX as the host operating system for this exercise.
     docker pull centos:latest
     ```
 
-# Docker "Hello World"
+## Docker "Hello World"
 1. Launch a docker-terminal
 2. Use _centos_ docker image to <kbd>echo</kbd> a message
 
@@ -63,8 +66,40 @@ We will be using Mac OSX as the host operating system for this exercise.
     # -d run the container in the background
     docker run --name=demo-container -i -P -d centos
     ```
-4. Attach to a running image
+4. Attach to a running container
 
     ``` bash
     docker attach [conatiner-name]
     ```
+5. Attach to a running container in an interactive mode via a shell
+
+    ``` bash
+    docker exec -i -t [container-name] bash
+    ```
+
+## Docker File
+A [_dockerfile_](https://docs.docker.com/reference/builder/) is a plain text document that contains all the commands a user would issue to build an image.  Using <kbd>docker build</kbd> user can create an automated build that executes several command line instructions in succession.
+
+``` bash
+# Dockerfile to build a docker image with FFmpeg framework
+# ---------------------------------------------------------------------------
+# Build command
+# docker build -t ffmpegt --file=[dockerfile-name] .
+# Run command
+# docker run -it -d --name ffmpeg -P ffmpegt
+# ---------------------------------------------------------------------------
+FROM centos:latest
+MAINTAINER kunal@finiteloop.me
+ENV dlpackage http://ffmpeg.org/releases/ffmpeg-2.8.1.tar.bz2
+ENV ffmpeg ffmpeg-2.8.1
+ENV softwaredir /var/ffmpeg
+
+# Download the required utilities
+RUN yum install -y curl tar bzip2
+# Create a directory for the software package
+RUN mkdir -p ${softwaredir}
+# Download the software package
+RUN curl ${dlpackage} -o ${softwaredir}/${ffmpeg}.tar.bz2
+RUN bunzip2 ${softwaredir}/${ffmpeg}.tar.bz2 && \
+tar -xvf ${softwaredir}/${ffmpeg}.tar -C ${softwaredir}
+```
