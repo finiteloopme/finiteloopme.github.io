@@ -6,6 +6,16 @@ $category-color: #808080;
 
 $tag-color: #C0C0C0;
 
+.category-glyph{
+    color: $category-color;
+    margin-right: 5px;
+}
+
+.label-glyph{
+    color: $tag-color;
+    margin-right: 5px;
+}
+
 .label-category {
    background-color: $category-color;
    margin-right: 5px;

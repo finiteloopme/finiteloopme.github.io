@@ -9,11 +9,22 @@ layout: default
 	  <li class="post">
 	  	<h2><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title}}</a></h2>
 	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
+		<span class="category-glyph glyphicon glyphicon-folder-open">
+			<!-- &nbsp; -->
+		</span>
 		{% for category in post.categories %}
 			<a href="/categories/#{{ category }}" class="label label-category">
 	                {{ category | replace:'-', ' ' }}
 			</a>
 		{% endfor %}
+		<span>
+			&nbsp;
+		</span>
+		<!-- <span class="glyphicon glyphicon-option-vertical">
+		</span> -->
+		<span class="label-glyph glyphicon glyphicon-tags">
+			<!-- &nbsp; -->
+		</span>
 		{% for tag in post.tags %}
 		<a href="/tags/#{{ tag }}" class="label label-tag">
 			{{ tag | replace:'-', ' ' }}
