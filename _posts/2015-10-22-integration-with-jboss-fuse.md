@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Integration with JBoss Fuse -- Overview
+title: A sample integration application with JBoss Fuse
 published: false
 categories:
     - technical
@@ -22,8 +22,23 @@ JBoss Fuse allows deployment in several different configurations facilitating in
 4. Apache Karaf - offers a lightweight [OSGi](http://www.osgi.org/Main/HomePage) based container
 5. Fabric8 - simplifies management of distributed JBoss Fuse deployments from a central location
 
-## Getting started
-We will be using [JBoss Development Studio (JBDS)][ec7a0d7a] as the development IDE.
+## Getting started with a sample integration application
+
+### Components used to develop integration application
+1. JBoss Fuse as the integration platform
+2. [JBoss Development Studio (JBDS)][ec7a0d7a]
+3. [Mashape][dcbc79f1] for integrating API
+
+    ``` bash
+    ${username}=apidemo
+    ${password}=ap1demo
+    ```
+
+4.
+
+### Code snippets
+The source code for this sample application is available on [github][adb67f15].
+
 
 1. Create a simple [maven][faab988c] project with packaging type as _jar_
 2. Ensure following JBoss Fuse specific repositories are added to the project
@@ -104,3 +119,5 @@ We will be using [JBoss Development Studio (JBDS)][ec7a0d7a] as the development 
   [471ee006]: http://www.redhat.com/en/technologies/jboss-middleware/fuse "Red Hat JBoss Fuse"
   [ec7a0d7a]: http://www.jboss.org/products/devstudio/overview/ "JBoss Development Studio"
   [faab988c]: https://maven.apache.org/ "Apache Maven"
+  [dcbc79f1]: https://www.mashape.com/ "Mashape API"
+  [adb67f15]: https://github.com/finiteloopme/search-online-stores "Source code on Github"
