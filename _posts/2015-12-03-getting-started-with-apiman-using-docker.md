@@ -11,7 +11,7 @@ tags:
     - mac-os-x
 ---
 # Developer's guide to start working with APIMan
-[APIMan ](http://apiman.io) is a JBoss project for developing an open source API management platform.
+[APIMan ](http://apiman.io) is a JBoss project for developing an open source based API management platform.
 
 ## Core features of APIMan are:
 1. **Govern your APIs**: flexible, policy-based runtime governance of the API.  Ability to offer same API through multiple plans, allowing different levels of service to different API consumers.
