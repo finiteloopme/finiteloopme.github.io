@@ -11,7 +11,11 @@ tags:
     - mac-os-x
 ---
 # Developer's guide to start working with APIMan
+## What is APIMan?
 [APIMan ](http://apiman.io) is an open source project for developing an API management solution.
+
+## About this article
+APIMan has a very interesting value proposition.  As a technical individual, I find it easy to get started with a project by developing features, add-ons.  I couldn't find a *easy* way to get started with APIMan - purely *from a development* perspective.  Hopefully this article will help a developer to get started quickly with development on APIMan project.
 
 ## Core features of APIMan are:
 1. **API governance**: flexible, policy-based runtime governance of the API.  Ability to offer same API through multiple plans, allowing different levels of service to different API consumers.
@@ -52,7 +56,7 @@ First thing we want to do is build a docker container with *development friendly
     CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c", "standalone-apiman.xml"]
     ```
     > At the time of writing this article, the jboss/apiman-wildfly uses Java 7. Where as the latest (master branch) of APIMan requires Java 8. There is an [open issue](https://github.com/jboss-dockerfiles/apiman/issues/19) and a corresponding [pull request](https://github.com/jboss-dockerfiles/apiman/pull/20) on github to upgrade docker image to use Java 8.
-    > 
+    >
     > In the meantime, please use the dockerfiles available at https://github.com/finiteloopme/apiman-wildfly-docker
 
 4. Build the new docker image
