@@ -11,16 +11,16 @@ tags:
     - mac-os-x
 ---
 # Developer's guide to start working with APIMan
-[APIMan ](http://apiman.io) is a JBoss project for developing an open source based API management platform.
+[APIMan ](http://apiman.io) is an open source project for developing an API management solution.
 
 ## Core features of APIMan are:
-1. **Govern your APIs**: flexible, policy-based runtime governance of the API.  Ability to offer same API through multiple plans, allowing different levels of service to different API consumers.
+1. **API governance**: flexible, policy-based runtime governance of the API.  Ability to offer same API through multiple plans, allowing different levels of service to different API consumers.
 2. **Rich management layer**: REST API and separate UI to manage/configure not only APIs but also the applications that consume them.
 3. **Easily embeddable**: a very small footprint allows to embed API Management Policy Engine in any application.
-4. **Fully asynchronous**: the runtime engine's API is fully asynchronous and is designed to run equally well in both a standard J2EE environment and newer async runtimes like [Vert.x](http://vertx.io).
+4. **Fully asynchronous**: the runtime engine's API is fully asynchronous and is designed to run equally well in both a standard Java EE environment and newer async runtimes like [Vert.x](http://vertx.io).
 
 ## Running APIMan in a docker container
-### Using the APIMan docker image
+JBoss community maintains a docker image specifically for APIMan project.  Using this docker image is one of the easiest ways to get started with APIMan.
 
 ```bash
 # Download the APIMan docker image
@@ -30,11 +30,11 @@ $ docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
 ```
 > If you are using Mac OS X, make sure that you access the docker container using the IP address of Docker *default* machine, instead of *localhost*
 
-## Customisation of APIMan using docker
+## Developing APIMan using docker
 
-First thing we want to do is build a docker container with APIMan preconfigured.  Then we want to deploy the custom developed artifacts to this container.
+First thing we want to do is build a docker container with *development friendly* APIMan preconfigured.  Then we want to deploy the custom developed artifacts to this container.
 
-1. Fork the [github project](https://github.com/apiman/apiman-wildfly-docker) for APIMan related docker images.
+1. Fork the [github project](https://github.com/apiman/apiman-wildfly-docker) for APIMan related docker image.
 > My fork resides at: https://github.com/finiteloopme/apiman-wildfly-docker
 
 2. Next <kbd>git clone</kbd> our fork so that we can make development specific changes to the APIMan [dockerfile](http://docs.docker.com/engine/reference/builder/).
@@ -51,6 +51,9 @@ First thing we want to do is build a docker container with APIMan preconfigured.
     # Start/bind the management service to the local IP
     CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c", "standalone-apiman.xml"]
     ```
+    > At the time of writing this article, the jboss/apiman-wildfly uses Java 7. Where as the latest (master branch) of APIMan requires Java 8. There is an [open issue](https://github.com/jboss-dockerfiles/apiman/issues/19) and a corresponding [pull request](https://github.com/jboss-dockerfiles/apiman/pull/20) on github to upgrade docker image to use Java 8.
+    > 
+    > In the meantime, please use the dockerfiles available at https://github.com/finiteloopme/apiman-wildfly-docker
 
 4. Build the new docker image
 
