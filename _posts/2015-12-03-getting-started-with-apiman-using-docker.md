@@ -15,7 +15,7 @@ tags:
 [APIMan ](http://apiman.io) is an open source project for developing an API management solution.
 
 ## About this article
-APIMan has a very interesting value proposition.  As a technical individual, I find it easy to get started with a project by developing features, add-ons.  I couldn't find a *easy* way to get started with APIMan - purely *from a development* perspective.  Hopefully this article will help a developer to get started quickly with development on APIMan project.
+APIMan has a very interesting value proposition.  Developing features, add-ons is a very effective way of getting started with a project.  I couldn't find a *easy* documented way to get started with APIMan - purely *from a development* perspective.  Hopefully this article will help a developer to get started quickly with development on APIMan project.
 
 ## Core features of APIMan are:
 1. **API governance**: flexible, policy-based runtime governance of the API.  Ability to offer same API through multiple plans, allowing different levels of service to different API consumers.
