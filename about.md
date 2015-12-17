@@ -11,3 +11,5 @@ In my current role I get an opportunity to discuss technology with some very sma
 My current role is with the leading provider of open source solutions. Having said that, thoughts expressed in this blog are mine alone and do not represent any company or organisation.
 
 -**Kunal**
+
+kunal<kbd>@</kbd>finiteloop.me

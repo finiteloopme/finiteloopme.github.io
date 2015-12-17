@@ -7,13 +7,17 @@ author:
   twitter: "finiteloopme"
   url: "http://finiteloop.me"
 
+# Plugins
+whiltelist: []
+gems: [jekyll-paginate, jekyll-watch]
+
 # Build settings
 baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
 markdown: redcarpet
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 10
+paginate: 5
 paginate_path: /page:num/
 
 # Default values
