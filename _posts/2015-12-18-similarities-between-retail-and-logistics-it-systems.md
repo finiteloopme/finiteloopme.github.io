@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "API Management in Retail vertical"
+title: "Similarities between Retail and Logistics IT systems"
 published: false
 categories:
-    - technical
+    - business
 tags:
     - architecture
     - api-mannagement
     - apis
     - design-pattern
 ---
-# Designing API management platform for a large retailer
+# Similarities between Retail and Logistics IT systems
 An API *-Application Programming Interface-* driven economy forms the backbone of the ongoing digital revolution.  In simple terms, API allows a business to offer consistent, secure, and reusable business functions to the market.  This approach is critical to enable a consistent customer experience when engaging with the business, irrespective of the channel used.
 
 Ability to offer the same business service on a different plan is the added benefit of API driven economy.  E.g. being able to offer the same service as part of Gold, Silver, or Bronze plan.
