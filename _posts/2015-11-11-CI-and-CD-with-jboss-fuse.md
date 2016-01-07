@@ -29,7 +29,7 @@ Aim of this writeup is to assist software engineers (developers and operators) i
 
 ## Tools for CD pipeline
 
-1. Puppet/chef to provision VMs
+1. Docker as a container for JBoss Fuse
 2. Git for SCM
 3. Gerrit/Gitlab for code review
 4. Maven
