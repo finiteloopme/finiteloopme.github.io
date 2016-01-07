@@ -49,7 +49,7 @@ First thing we want to do is build a docker container with *development friendly
 
 3. Make a copy of *Dockerfile* as *Dockerfile-devel*. Make following changes to the devel dockerfile.
 
-    ```makefile
+    ```bash
     # Add an admin user so that we can deploy our code (java artifacts)
     RUN /opt/jboss/wildfly/bin/add-user.sh root Root!23 --silent
     # Start/bind the management service to the local IP
