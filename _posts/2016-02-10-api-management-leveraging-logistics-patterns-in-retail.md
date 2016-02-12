@@ -54,6 +54,13 @@ Multiple units could be shipped to local store(s) if any failover strategies are
 
 ![APIMan Gateway stack](../img/2016/02/retail-api-management-api-gateway-stack.png)
 
+## Conceptual architecture
+The diagram below shows the system architecture at a conceptual level.  This architecture is derived by leveraging the IoT patterns commonly used by logistics vertical and combining it with the distributed deployment of capability of APIMan.
+
+![APIMan IoT conceptual architecture](../img/2016/02/retail-api-management-iot-conceptual-architecture.png)
+
+The API Gateways deployed at local stores may not always have a **live** connection to the API Manager or the central IT.  As such the local API Gateways would aggregate the information and requests received from local devices, services and applications and if required forward it to the central IT services using a simple _store and forward_ design pattern.
+
 ## Benefits of this strategy
 1. The core processing and management is centralised.
 2. API Gateways have a large footprint.  And this strategy commoditises API Gateways.
