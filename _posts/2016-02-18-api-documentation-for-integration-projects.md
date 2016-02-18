@@ -9,7 +9,7 @@ tags:
     - api-management
     - api-documentation
     - swagger
-    - api-man
+    - apiman
     - wadl
 ---
 
