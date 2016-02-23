@@ -30,6 +30,7 @@ So the idea is to move these production applications into a centrally hosted pla
 + The nature of these applications may also require that the underlying platform be _uncontested_ or must adhere to delivering well defined QoS.
 
 Consider the three (3) basic cloud models for VPS:
+
 1. IaaS: infrastructure as a service
 2. PaaS: platform as a service
 3. SaaS: software as a service
@@ -41,6 +42,7 @@ Drawback of this approach is that the automation script ties you into a certain 
 
 ### SaaS
 An application available via SaaS would be an attractive proposition.  Reason being that the SaaS model inherently removes the operational risks.  Though in this scenario given the critical aspect of reducing latency, following three (3) work against SaaS:
+
 1. Shared platform - most of the SaaS applications are multi-tenanted so will be sharing the platform with other tenants/customers.
 2. Location - more often than not, SaaS applications are hosted out of a centralised data centre/cloud which could introduce significant network latency.
 3. Integration - VPS would require fair bit of integration between encoding, decoding, mixing applications.  Again integrating SaaS based applications involves fair amount of network chatter, potentially introducing latency.
@@ -51,6 +53,7 @@ PaaS is deployed on top of IaaS and provides best of both the worlds with enough
 Applications developed and deployed on enterprise ready PaaS like [Red Hat OpenShift][4087d7eb] abstracts the applications from the underlying infrastructure.  [Red Hat OpenShift][4087d7eb] can be deployed on almost any infrastructure which can run [RHEL 7][35f68a00].  This allows for a larger install base than developing application deployment scripts for specifc IaaS platform.
 
 Added benefit of this approach is that [Red Hat OpenShift][4087d7eb] facilitates deployment of applications using  micro-services design pattern.  OpenShift is built using widely used functional components like:
+
 1. [Doker][38136ad0] is a very popular implementation of Linux containers. It streamlines packaging of distributed applications.
 2. [Kubernetes][4013e689] is orchestration, management, and self-healing engine for Linux container.
 3. [Git][75d0b00a] for source code management
