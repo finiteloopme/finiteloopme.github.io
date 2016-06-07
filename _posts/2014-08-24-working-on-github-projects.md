@@ -26,18 +26,18 @@ So here are the steps that I follow to start working on a project on github:
 
 ### 2.	Clone your fork
 
-```bash
+~~~bash
    # Clone the project locally
    git clone https://github.com/finiteloopme/apiman
    # This is the master branch of your project
    cd apiman
    # Create a remote repo named *upstream* for the original project
    git remote add upstream https://github.com/apiman/apiman
-```
+~~~
 
 ### 3.	Contribute fixes and/or features to the project
 
-```bash
+~~~bash
    # Create a branch for a specific issue
    git checkout -b apiman-issue123
    # Switch the branch to *master*
@@ -50,6 +50,6 @@ So here are the steps that I follow to start working on a project on github:
    git rebase master
    # Push your topic branch into your public fork
    git push origin apiman-issue123
-```
+~~~
 
 ### 4.	Generate a [pull-request](http://help.github.com/articles/using-pull-requests) for your changes

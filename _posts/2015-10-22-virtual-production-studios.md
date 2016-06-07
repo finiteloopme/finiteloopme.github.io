@@ -25,9 +25,9 @@ The notion of a _virtual production studio (VPS)_ is to virtualise the productio
 So the idea is to move these production applications into a centrally hosted platform.  Important characteristics for the platform would be:
 
 1. Ability to spin up the application platform -VPS- as close to the live event as possible; ideally at the network edge to reduce latency
-+ Automation to enable push button launch/deploy of applications.
-+ Ability to scale applications (increase or decrease number of instances) to appropriately service number of events being broadcasted.
-+ The nature of these applications may also require that the underlying platform be _uncontested_ or must adhere to delivering well defined QoS.
+2. Automation to enable push button launch/deploy of applications.
+3. Ability to scale applications (increase or decrease number of instances) to appropriately service number of events being broadcasted.
+4. The nature of these applications may also require that the underlying platform be _uncontested_ or must adhere to delivering well defined QoS.
 
 Consider the three (3) basic cloud models for VPS:
 
@@ -36,7 +36,7 @@ Consider the three (3) basic cloud models for VPS:
 3. SaaS: software as a service
 
 ### IaaS
-IaaS enables users to spin up workload from _OS (Operating System)_ level and up.  This obviously gives a fair amount of control to the user regarding how application is packaged.  This requires automation via use of scripting tools. Most commonly used scripting tools are Ansible, Puppet, Chef, etc.  Using these scripts and tools, automation is performed by orchestrating the underlying API provided by the IaaS platform (e.g. AWS, Google Cloud Platform, OpenStack distribution, internal hypervisor based cloud, etc).  
+IaaS enables users to spin up workload from _OS (Operating System)_ level and up.  This obviously gives a fair amount of control to the user regarding how application is packaged.  This requires automation via use of scripting tools. Most commonly used scripting tools are Ansible, Puppet, Chef, etc.  Using these scripts and tools, automation is performed by orchestrating the underlying API provided by the IaaS platform (e.g. AWS, Google Cloud Platform, OpenStack distribution, internal hypervisor based cloud, etc).
 
 Drawback of this approach is that the automation script ties you into a certain platform.  For e.g. automation scripts developed for AWS would need significant *refactoring* for *Google Cloud Platform*.  And this is a fairly significant disadvantage as VPS needs to be deployed in various locations.  And it won't be valid to make assumptions on availability of specific IaaS platforms.
 
@@ -48,7 +48,7 @@ An application available via SaaS would be an attractive proposition.  Reason be
 3. Integration - VPS would require fair bit of integration between encoding, decoding, mixing applications.  Again integrating SaaS based applications involves fair amount of network chatter, potentially introducing latency.
 
 ### PaaS
-PaaS is deployed on top of IaaS and provides best of both the worlds with enough automation and control from IaaS and the necessary abstraction (hiding of technical details) provided by SaaS.  
+PaaS is deployed on top of IaaS and provides best of both the worlds with enough automation and control from IaaS and the necessary abstraction (hiding of technical details) provided by SaaS.
 
 Applications developed and deployed on enterprise ready PaaS like [Red Hat OpenShift][4087d7eb] abstracts the applications from the underlying infrastructure.  [Red Hat OpenShift][4087d7eb] can be deployed on almost any infrastructure which can run [RHEL 7][35f68a00].  This allows for a larger install base than developing application deployment scripts for specifc IaaS platform.
 

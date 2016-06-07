@@ -12,6 +12,7 @@ tags:
 ---
 
 # [APIDays][fb7fdfe4] Melbourne, Australia
+
 ### March 1st - 2nd 2016
 
 ## Summary of the event
@@ -22,6 +23,7 @@ Theme for the event was Platform for Innovation.  And it was very apt, as beside
 In hindsight, there was a bit too much focus on the cultural change required to deliver on the promise of API and not enough content to highlight how technology can enable it.  The business lens on using API to to enable and innovate was well worth the time.
 
 ## Interesting trends from the event
+
 ### The attention economy
 The evolution of handheld devices is placing extreme premium on consumer attention.  We as a producer/supplier are constantly competing with other producers for consumer’s attention.  If we can not make our interactions with the consumer engaging, someone else will.  Net effect is that value offered by our services is a very close second to our ability to engage the customer; because the engagement model will define if we capture and keep customer’s attention or not.
 

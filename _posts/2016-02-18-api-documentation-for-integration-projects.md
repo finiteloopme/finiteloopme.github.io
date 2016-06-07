@@ -29,6 +29,7 @@ _Swagger_ is getting a fair bit of traction in the market and has  donated their
 Runtime governance is implemented by API Management solutions like [APIMan][955a0479].
 
 ## Common patterns with API design
+
 ### 1. Top-down approach
 In a top-down approach, API designer would use an editor like [Swagger Editor][1400d899] to create an API definition.  Using this definition, a developer can then use [code generation tools][fcacd9c1] to generate a _stub_ for server side implementation.
 > API definitions could also be created using a simple text editor.
