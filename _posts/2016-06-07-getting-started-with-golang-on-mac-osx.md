@@ -22,8 +22,8 @@ Just then I spent about 15 minutes setting up my Mac as a development machine fo
 ```bash
 # Configuration for GO language
 export GOPATH=~/Projects/go-workspace   # this will be the parent directory of all your GO projects
-alias "go=/usr/local/go/bin/go"     # simply to ensure that go is in your PATH
-export PATH=$PATH:$GOPATH/bin
+# Ensure go binaries are in the PATH
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 ```
 
 * Done! You should be good to Go...
