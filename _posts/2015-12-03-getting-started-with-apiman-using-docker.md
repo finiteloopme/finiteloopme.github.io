@@ -29,9 +29,9 @@ JBoss community maintains a docker image specifically for APIMan project.  Using
 
 ```bash
 # Download the APIMan docker image
-$ docker pull jboss/apiman-wildfly
+docker pull jboss/apiman-wildfly
 # Run APIMan in a docker container
-$ docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
+docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
 ```
 
 > If you are using Mac OS X, make sure that you access the docker container using the IP address of Docker *default* machine, instead of *localhost*
@@ -47,12 +47,12 @@ First thing we want to do is build a docker container with *development friendly
 2. Next <kbd>git clone</kbd> our fork so that we can make development specific changes to the APIMan [dockerfile](http://docs.docker.com/engine/reference/builder/).
 
    ```bash
-   $ git clone https://github.com/finiteloopme/apiman-wildfly-docker
+   git clone https://github.com/finiteloopme/apiman-wildfly-docker
    ```
 
 3. Make a copy of *Dockerfile* as *Dockerfile-devel*. Make following changes to the devel dockerfile.
 
-   ```dockerfile
+   ```docker
    # Add an admin user so that we can deploy our code (java artifacts)
    RUN /opt/jboss/wildfly/bin/add-user.sh root Root!23 --silent
    # Start/bind the management service to the local IP
@@ -78,7 +78,7 @@ First thing we want to do is build a docker container with *development friendly
 
 6. Add the [wildfly-maven-plugin](https://docs.jboss.org/wildfly/plugins/maven/latest/deploy-mojo.html) configuration to APIMan parent pom file.
 
-   ```
+   ```xml
     <properties>
         .....
         <!-- Wildfly deploy configuration -->
@@ -108,10 +108,10 @@ First thing we want to do is build a docker container with *development friendly
 						<password>${wildfly.deploy.passwd}</password>
 					</configuration>
 				</plugin>
-                ...
-            </plugins>
-        </pluginManagement>
-    </build>
+               ...
+           </plugins>
+       </pluginManagement>
+   </build>
    ```
 
     > On Mac OS X, please add a *hostname* for the docker host in ''/etc/hosts' file.  And use this hostname while configuring the wildfly-maven-plugin. Simply using IP address will result in an error.
