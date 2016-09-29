@@ -3,7 +3,7 @@ title: Finite Loop
 description: "Thougts on technology"
 url: "http://finiteloop.me"
 author:
-  name: "Kunal"
+  name: "Kunal Limaye"
   twitter: "finiteloopme"
   url: "http://finiteloop.me"
 
@@ -13,11 +13,6 @@ gems: [jekyll-paginate, jekyll-watch]
 
 # Build settings
 baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
-# markdown: redcarpet
-markdown: kramdown
-kramdown:
-  input:          GFM
-highlighter: rouge
 source: .
 destination: ./_site
 permalink: /:title
@@ -41,25 +36,24 @@ custom_header: false
 custom_nav_footer: false
 reverse: false
 
+markdown: kramdown
+highlighter: rouge
 ## Following required for line numbers for code block
-#kramdown:
-#  input:          GFM
-#  # https://github.com/jekyll/jekyll/pull/4090
-#  syntax_highlighter: rouge
-#
-#  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
-#  # span, block element options fall back to global
-#  syntax_highlighter_opts:
-#    # Rouge Options › https://github.com/jneen/rouge#full-options
-#    css_class: 'highlight'
-#    #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
-#    span:
-#      line_numbers: false
-#    block:
-#      line_numbers: true
-#      start_line: 1
+kramdown:
+    input: GFM
+    auto_ids: true
+# https://github.com/jekyll/jekyll/pull/4090
+    syntax_highlighter: rouge
+
+    # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
+    # span, block element options fall back to global
+    syntax_highlighter_opts:
+      # Rouge Options › https://github.com/jneen/rouge#full-options
+      css_class: 'highlight'
+      #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
+      span:
+        line_numbers: false
+      block:
+        line_numbers: true
+        start_line: 1
 # END change for line numbers for code block
-#redcarpet:
-#    extensions: [ "tables" ]
-#    input: GFM
-#    syntax_highlighter: rouge

@@ -42,77 +42,77 @@ First thing we want to do is build a docker container with *development friendly
 
 1. Fork the [github project](https://github.com/apiman/apiman-wildfly-docker) for APIMan related docker image.
 
-    > My fork resides at: https://github.com/finiteloopme/apiman-wildfly-docker
+   > My fork resides at: https://github.com/finiteloopme/apiman-wildfly-docker
 
 2. Next <kbd>git clone</kbd> our fork so that we can make development specific changes to the APIMan [dockerfile](http://docs.docker.com/engine/reference/builder/).
 
-        ```bash
-        $ git clone https://github.com/finiteloopme/apiman-wildfly-docker
-        ```
+   ```bash
+   $ git clone https://github.com/finiteloopme/apiman-wildfly-docker
+   ```
 
 3. Make a copy of *Dockerfile* as *Dockerfile-devel*. Make following changes to the devel dockerfile.
 
-        ```dockerfile
-        # Add an admin user so that we can deploy our code (java artifacts)
-        RUN /opt/jboss/wildfly/bin/add-user.sh root Root!23 --silent
-        # Start/bind the management service to the local IP
-        CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c", "standalone-apiman.xml"]
-        ```
+   ```dockerfile
+   # Add an admin user so that we can deploy our code (java artifacts)
+   RUN /opt/jboss/wildfly/bin/add-user.sh root Root!23 --silent
+   # Start/bind the management service to the local IP
+   CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c", "standalone-apiman.xml"]
+   ```
 
-    > At the time of writing this article, the jboss/apiman-wildfly uses Java 7. Where as the latest (master branch) of APIMan requires Java 8. There is an [open issue](https://github.com/jboss-dockerfiles/apiman/issues/19) and a corresponding [pull request](https://github.com/jboss-dockerfiles/apiman/pull/20) on github to upgrade docker image to use Java 8.
-    >
-    > In the meantime, please use the dockerfiles available at https://github.com/finiteloopme/apiman-wildfly-docker
+   > At the time of writing this article, the jboss/apiman-wildfly uses Java 7. Where as the latest (master branch) of APIMan requires Java 8. There is an [open issue](https://github.com/jboss-dockerfiles/apiman/issues/19) and a corresponding [pull request](https://github.com/jboss-dockerfiles/apiman/pull/20) on github to upgrade docker image to use Java 8.
+   >
+   > In the meantime, please use the dockerfiles available at https://github.com/finiteloopme/apiman-wildfly-docker
 
 4. Build the new docker image
 
-        ```bash
-        # Change the directory to Dockerfile-devel file location
-        $ docker build --file=Dockerfile-devel --tag=jboss/apiman-devel .
-        ```
+   ```bash
+   # Change the directory to Dockerfile-devel file location
+   docker build --file=Dockerfile-devel --tag=jboss/apiman-devel .
+   ```
 
 5. Start the docker container
 
-        ```bash
-        $ docker run -p 8080:8080 -p 8443:8443 -p 9990:9990 -it jboss/apiman-devel
-        ```
+   ```bash
+   docker run -p 8080:8080 -p 8443:8443 -p 9990:9990 -it jboss/apiman-devel
+   ```
 
 6. Add the [wildfly-maven-plugin](https://docs.jboss.org/wildfly/plugins/maven/latest/deploy-mojo.html) configuration to APIMan parent pom file.
 
-        ```xml
-        <properties>
-            .....
-            <!-- Wildfly deploy configuration -->
-            <version.wildfly.deploy.plugin>1.1.0.Alpha4</version.wildfly.deploy.plugin>
-            <wildfly.deploy.hostname>dockerhost</wildfly.deploy.hostname>
-            <wildfly.deploy.mgmt.port>9990</wildfly.deploy.mgmt.port>
-            <wildfly.deploy.username>root</wildfly.deploy.username>
-            <wildfly.deploy.passwd>Root!23</wildfly.deploy.passwd>
-        ....
-        <properties>
-        <build>
-            <pluginManagement>
-                <plugins>
-                    ...
-                    <!-- Wildfly plugin to deploy artifacts -->
-    				<plugin>
-    					<groupId>org.wildfly.plugins</groupId>
-    					<artifactId>wildfly-maven-plugin</artifactId>
-    					<version>${version.wildfly.deploy.plugin}</version>
-    					<configuration>
-    						<!-- Force the application to be redeployed if it already exists -->
-    						<force>true</force>
-    						<filename>${project.build.finalName}.${project.packaging}</filename>
-    						<hostname>${wildfly.deploy.hostname}</hostname>
-    						<port>${wildfly.deploy.mgmt.port}</port>
-    						<username>${wildfly.deploy.username}</username>
-    						<password>${wildfly.deploy.passwd}</password>
-    					</configuration>
-    				</plugin>
-                    ...
-                </plugins>
-            </pluginManagement>
-        </build>
-        ```
+   ```
+    <properties>
+        .....
+        <!-- Wildfly deploy configuration -->
+        <version.wildfly.deploy.plugin>1.1.0.Alpha4</version.wildfly.deploy.plugin>
+        <wildfly.deploy.hostname>dockerhost</wildfly.deploy.hostname>
+        <wildfly.deploy.mgmt.port>9990</wildfly.deploy.mgmt.port>
+        <wildfly.deploy.username>root</wildfly.deploy.username>
+        <wildfly.deploy.passwd>Root!23</wildfly.deploy.passwd>
+    ....
+    <properties>
+    <build>
+        <pluginManagement>
+            <plugins>
+                ...
+                <!-- Wildfly plugin to deploy artifacts -->
+				<plugin>
+					<groupId>org.wildfly.plugins</groupId>
+					<artifactId>wildfly-maven-plugin</artifactId>
+					<version>${version.wildfly.deploy.plugin}</version>
+					<configuration>
+						<!-- Force the application to be redeployed if it already exists -->
+						<force>true</force>
+						<filename>${project.build.finalName}.${project.packaging}</filename>
+						<hostname>${wildfly.deploy.hostname}</hostname>
+						<port>${wildfly.deploy.mgmt.port}</port>
+						<username>${wildfly.deploy.username}</username>
+						<password>${wildfly.deploy.passwd}</password>
+					</configuration>
+				</plugin>
+                ...
+            </plugins>
+        </pluginManagement>
+    </build>
+   ```
 
     > On Mac OS X, please add a *hostname* for the docker host in ''/etc/hosts' file.  And use this hostname while configuring the wildfly-maven-plugin. Simply using IP address will result in an error.
 
