@@ -11,7 +11,7 @@ tags:
 
 # Reporting on activities in Trello
 
-~~~java
+```java
 /* Get members list from AppDev dashboard */
 // Get all of the information about the boards you have access to
 var success = function(successMsg) {
@@ -23,4 +23,4 @@ var error = function(errorMsg) {
 };
 
 Trello.get('/boards/561466285457d13b4cbe942a/members', success, error);
-~~~
+```

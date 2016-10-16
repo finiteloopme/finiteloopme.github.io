@@ -29,10 +29,10 @@ JBoss Fuse allows deployment in several different configurations facilitating in
 2. [JBoss Development Studio (JBDS)][ec7a0d7a]
 3. [Mashape][dcbc79f1] for integrating API
 
-    ``` bash
+   ``` bash
     ${username}=apidemo
     ${password}=ap1demo
-    ```
+   ```
 
 4.
 
@@ -43,7 +43,7 @@ The source code for this sample application is available on [github][adb67f15].
 1. Create a simple [maven][faab988c] project with packaging type as _jar_
 2. Ensure following JBoss Fuse specific repositories are added to the project
 
-    ``` xml
+   ``` xml
     <repositories>
         <repository>
             <id>release.fusesource.org</id>
@@ -93,16 +93,16 @@ The source code for this sample application is available on [github][adb67f15].
             </releases>
         </pluginRepository>
     </pluginRepositories>
-    ```
+   ```
 3. Add appropriate JBoss Fuse version as a property to the pom
 
-    ``` xml
+   ``` xml
     <jboss.fuse.version>6.2.1.redhat-069</jboss.fuse.version>
-    ```
+   ```
 
 4. Include the JBoss Fuse BOM so the dependencies are managed automatically
 
-    ``` xml
+   ``` xml
     <dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -114,7 +114,7 @@ The source code for this sample application is available on [github][adb67f15].
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-    ```
+   ```
 
   [471ee006]: http://www.redhat.com/en/technologies/jboss-middleware/fuse "Red Hat JBoss Fuse"
   [ec7a0d7a]: http://www.jboss.org/products/devstudio/overview/ "JBoss Development Studio"

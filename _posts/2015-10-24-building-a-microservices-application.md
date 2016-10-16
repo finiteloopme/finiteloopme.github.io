@@ -31,17 +31,17 @@ But in our simple example, we do not require these extra services like transacti
 
 [WildFly Swarm][0c0b573e] offers an innovative approach to packaging and executing Java EE applications by allowing the developer to explicitly specify the required platform features.  In our case we require JaxRS + CDI and the required dependency is specified in pom.xml as follows.
 
-~~~xml
+```xml
 <dependency>
     <groupId>org.wildfly.swarm</groupId>
     <artifactId>wildfly-swarm-jaxrs-weld</artifactId>
     <version>${version.wildfly.swarm}</version>
 </dependency>
-~~~
+```
 
 Now we will configure pom.xml to build us a *fat jar* so that our application can be launched using simple <kbd>java</kbd> command.
 
-~~~xml
+```xml
 <plugin>
     <groupId>org.wildfly.swarm</groupId>
     <artifactId>wildfly-swarm-plugin</artifactId>
@@ -54,7 +54,7 @@ Now we will configure pom.xml to build us a *fat jar* so that our application ca
         </execution>
     </executions>
 </plugin>
-~~~
+```
 
 <kbd>mvn clean install</kbd> will build the application for us.  The built binaries will be available in first-wildfly-app/target folder.
 
@@ -63,12 +63,12 @@ Now we will configure pom.xml to build us a *fat jar* so that our application ca
 
 Interacting with the _micro-app_:
 
-~~~bash
+```bash
 # launch the application
 java -jar first-wildfly-app-0.0.1-SNAPSHOT-swarm.jar
 # Echo service should be available at localhost:8080/echo
 curl http://localhost:8080/echo
-~~~
+```
 
 > TODO: Executing the command multiple times starts the wildfly-swarm server multiple times, which causes startup failure as the ports are already being used.
 

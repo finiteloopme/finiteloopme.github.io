@@ -21,46 +21,46 @@ We will be using Mac OSX as the host operating system for this exercise.
 ## Basic commands
 1. List all the current *running* docker containers  
 
-    ```bash
+   ```bash
     docker ps
-    ```
+   ```
 
 2. List all the docker images
 
-    ```bash
+   ```bash
     docker images
-    ```
+   ```
 
 3. Remove (delete) a specific docker image
 
-    ```bash
+   ```bash
     # Delete a docker image  
     docker rmi DOCKER_IMAGE_ID
     # A command to force delete all the images
     docker images | awk '{print $3}'| xargs docker rmi --force=true
     # A command to force delete all the previously executed containers
     docker ps -a | awk '{print $1}' | xargs docker rm --force=true
-    ```
+   ```
 
 4. Download a specific docker container
 
-    ```bash
+   ```bash
     # Download the latest version of 'centos' docker image from the docker registry
     docker pull centos:latest
-    ```
+   ```
 
 ## Docker "Hello World"
 1. Launch a docker-terminal
 2. Use _centos_ docker image to <kbd>echo</kbd> a message
 
-    ```bash
+   ```bash
     # Execute a docker image named 'centos' and execute the 'echo' command
     docker run centos echo 'Hello World!'
-    ```
+   ```
 
 3. Run a docker container in background
 
-    ```bash
+   ```bash
     # Execute a docker image named 'centos'
     # Options:
     # --name name to identify the running container
@@ -68,19 +68,19 @@ We will be using Mac OSX as the host operating system for this exercise.
     # - P publishes all the ports of the container
     # -d run the container in the background
     docker run --name=demo-container -i -P -d centos
-    ```
+   ```
 
 4. Attach to a running container
 
-    ```bash
+   ```bash
     docker attach [conatiner-name]
-    ```
+   ```
 
 5. Attach to a running container in an interactive mode via a shell
 
-    ```bash
+   ```bash
     docker exec -i -t [container-name] bash
-    ```
+   ```
 
 ## Docker File
 A [_dockerfile_](https://docs.docker.com/reference/builder/) is a plain text document that contains all the commands a user would issue to build an image.  Using <kbd>docker build</kbd> user can create an automated build that executes several command line instructions in succession.

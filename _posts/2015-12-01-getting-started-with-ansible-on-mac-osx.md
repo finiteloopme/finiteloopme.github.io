@@ -24,11 +24,11 @@ Ansible by default manages machines over SSH channel.  By default this uses sftp
 ## Installing the control machine on Mac OS X
 Preferred way to install ansible on a Mac is using <kbd>pip</kbd>.
 
-    ```bash
+   ```bash
     # Install the Python package manager
     $ sudo wasy-install pip
     # install ansible
     $ sudo pip install ansible
     
-    ```
+   ```
   [2a8cc890]: http://www.ansible.com/ "What is Ansible"
