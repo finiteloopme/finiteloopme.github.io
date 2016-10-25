@@ -45,6 +45,7 @@ With developer as the primary audience, we will use [OpenShift][7] as the underl
 
 ### Environment
 I am using <kbd>macOS Sierra</kbd> for development, with following configuration:
+
 * Mac OSX native [Docker version 1.12.1][9]
 * Client tools [version 1.3.1][10] for OpenShift Container Platform
 
