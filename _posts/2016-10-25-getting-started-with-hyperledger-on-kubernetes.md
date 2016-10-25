@@ -13,8 +13,9 @@ tags:
     - programming
 ---
 
-# Hyperledger on Kubernetes
-## Why
+# Getting started with Hyperledger on Kubernetes
+
+## Why?
 Recently, I have been following the [Hyperledger][1] project and [Fabric][4] in particular with fair bit of interest.  The current deployment process[^1] for [Fabric Starter Kit][6] uses [Docker Swarm][2].  
 
 [Kubernetes][5] is a leading platform for automating deployment, scaling, and operations of containerised applications.  It is comparable to [Docker Swarm][2] in terms of target use cases.
@@ -33,14 +34,15 @@ So this article looks at a simple way to deploy [Fabric Starter Kit][6] on a [Ku
 
 With developer as the primary audience, we will use [OpenShift][7] as the underlying platform; as [Kubernetes][5] comes bundled in with [OpenShift][7].
 
-## What 
+## What? 
 [Fabric][4] application is composed of functional components distributed as linux containers using [Docker][3] packaging format.  
 
 [Kubernetes][5] is an open-source platform for automating deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.
 
 [OpenShift Container Platform - OCP][7] is based on top of [Docker][3] containers and the [Kubernetes][5] container cluster manager.  [OCP][7] adds developer and operational management centric tools to enable rapid application development, easy deployment and scaling, and long-term lifecycle maintenance for small and large teams and applications. 
 
-## How
+## How?
+
 ### Environment
 I am using <kbd>macOS Sierra</kbd> for development, with following configuration:
 * Mac OSX native [Docker version 1.12.1][9]
@@ -238,7 +240,8 @@ This proves how easy it is to start developing _chaincode applications[^5]_ to r
 [10]: https://github.com/openshift/origin/releases/tag/v1.3.1
 
 ---
-**Footnotes**
+
+#### Footnotes
 
 [^1]: [The current starter-kit uses an application defined within docker-compose.yml](https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml)  
 
