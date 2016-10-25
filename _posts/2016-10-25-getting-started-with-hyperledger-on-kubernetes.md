@@ -53,8 +53,8 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    oc cluster up
    ```
    > First time you execute this command it will take sometime as the service might download required OpenShift images
-
-   Note the information within **--Server Information** section  
+   
+   >Note the information within **--Server Information** section  
    ```bash
    -- Server Information ...   
    OpenShift server started.  
