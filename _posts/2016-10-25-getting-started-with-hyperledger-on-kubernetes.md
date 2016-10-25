@@ -55,32 +55,36 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    > First time you execute this command it will take sometime as the service might download required OpenShift images
    
    >Note the information within **--Server Information** section  
-      ```bash
-      -- Server Information ...   
-      OpenShift server started.  
-      The server is accessible via web console at:  
-         https://192.168.0.7:8443
+   
+   ```bash
+   -- Server Information ...   
+   OpenShift server started.  
+   The server is accessible via web console at:  
+      https://192.168.0.7:8443
 
-      You are logged in as:
-         User:     developer
-         Password: developer
+   You are logged in as:
+      User:     developer
+      Password: developer
 
-      To login as administrator:
-         oc login -u system:admin
-      ```
+   To login as administrator:
+      oc login -u system:admin
+   ```
 
 2. Allow the application to run as <kbd>root</kbd> or within a *privileged* container.
 > Allowing application containers to run as <kbd>root</kbd> *by default* should be strongly discouraged[^2]  
 
    1. Login as an administrator
+   
       ```bash
       oc login -u system:admin
       ```
    2. Allow the *default* user to run applications in a privileged mode (or in [OpenShift][7] speak, within a [privileged security context constraints][8])[^3]
+   
       ```bash
       oc adm policy add-scc-to-user privileged -z default -n myproject
       ```
    3. Logout as administrator and log back in as the default user
+   
       ```bash
       oc login -u developer
       ```
