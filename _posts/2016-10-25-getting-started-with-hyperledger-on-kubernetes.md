@@ -48,6 +48,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
 
 ### Steps to deploy [fabric-starter-kit][6] on OpenShift/Kubernetes
 1. Bring up OpenShift service
+
    ```bash
    oc cluster up
    ```
