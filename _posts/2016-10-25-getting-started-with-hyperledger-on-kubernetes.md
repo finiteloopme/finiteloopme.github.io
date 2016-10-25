@@ -238,7 +238,7 @@ This proves how easy it is to start developing _chaincode applications[^5]_ to r
 [10]: https://github.com/openshift/origin/releases/tag/v1.3.1
 
 ---
-#### Footnotes:
+**Footnotes**
 
 [^1]: [The current starter-kit uses an application defined within docker-compose.yml](https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml)  
 
