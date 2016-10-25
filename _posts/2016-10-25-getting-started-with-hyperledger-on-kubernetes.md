@@ -71,7 +71,8 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```
 
 2. Allow the application to run as <kbd>root</kbd> or within a *privileged* container.
-> Allowing application containers to run as <kbd>root</kbd> *by default* should be strongly discouraged[^2]  
+
+   > Allowing application containers to run as <kbd>root</kbd> *by default* should be strongly discouraged[^2]  
 
    1. Login as an administrator
    
@@ -90,6 +91,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
       ```
 
 3. Download the docker-compose file for the starter-kit
+
    ```bash
    wget -O docker-compose-fabric-starter-kit.yml https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml
    ```
@@ -108,21 +110,25 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```
 
 5. Import the docker-compose application into OpenShift
+
    ```bash
    oc import docker-compose -f docker-compose-fabric-starter-kit.yml
    ```
 
 6. Allow _member service_ to be executed with _root_ status
+
    ```bash
    oc patch dc membersrvc -p '{"spec":{"template":{"spec":{"containers":[{"name":"membersrvc","securityContext":{"privileged":true}}]}}}}'
    ```
 
 7. Allow validating peer service _vp0_ to be executed with _root_ status
+
    ```bash
    oc patch dc vp0 -p '{"spec":{"template":{"spec":{"containers":[{"name":"vp0","securityContext":{"privileged":true}}]}}}}'
    ```
 
 8. Give the system couple of minutes to startup the required containers.  Then ensure that all the services are up and running.
+
    ```bash
    oc get pods
    ```
@@ -139,6 +145,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    3. <kbd>starter-1-h8z1d</kbd> is the fabric-starter-kit service
 
 9. Deploy and execute the sample *chaincode[^5]* using Node.js Client SDK within the fabric-starter-kit
+
    ```bash
    oc exec starter-1-h8z1d node app
    ```
@@ -160,6 +167,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```
 
 10. Investigate logs for the peer validating service
+
     ```bash
     oc logs peer-2-3p43z
     ```
