@@ -133,6 +133,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    oc get pods
    ```
    >Result should be similar to below:  
+   
    ```bash
    NAME                 READY     STATUS    RESTARTS   AGE  
    membersrvc-2-3ft1y   1/1       Running   0          16m  
@@ -150,6 +151,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    oc exec starter-1-h8z1d node app
    ```
    >Result should be similar to below:  
+   
    ```bash
    *** starting HFC sample ***
    member services address =membersrvc:7054
@@ -172,6 +174,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
     oc logs peer-2-3p43z
     ```
     > Result should be similar to:  
+    
     ```bash
     04:06:46.438 [peer] ProcessTransaction -> DEBU 1128 ProcessTransaction processing transaction txid = mycc
     04:06:46.438 [peer] ProcessTransaction -> DEBU 1129 Verifying transaction signature mycc
