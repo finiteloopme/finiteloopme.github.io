@@ -237,6 +237,9 @@ This proves how easy it is to start developing _chaincode applications[^5]_ to r
 [9]: https://download.docker.com/mac/stable/Docker.dmg
 [10]: https://github.com/openshift/origin/releases/tag/v1.3.1
 
+---
+#### Footnotes:
+
 [^1]: [The current starter-kit uses an application defined within docker-compose.yml](https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml)  
 
 [^2]: [Architecting containers: First article in a series of four(4)](http://rhelblog.redhat.com/2015/07/29/architecting-containers-part-1-user-space-vs-kernel-space/)  
