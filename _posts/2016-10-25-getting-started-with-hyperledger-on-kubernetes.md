@@ -56,17 +56,17 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    
    >Note the information within **--Server Information** section  
       ```bash
-   -- Server Information ...   
-   OpenShift server started.  
-  The server is accessible via web console at:  
-      https://192.168.0.7:8443
+      -- Server Information ...   
+      OpenShift server started.  
+      The server is accessible via web console at:  
+         https://192.168.0.7:8443
 
-   You are logged in as:
-      User:     developer
-      Password: developer
+      You are logged in as:
+         User:     developer
+         Password: developer
 
-   To login as administrator:
-      oc login -u system:admin
+      To login as administrator:
+         oc login -u system:admin
       ```
 
 2. Allow the application to run as <kbd>root</kbd> or within a *privileged* container.
