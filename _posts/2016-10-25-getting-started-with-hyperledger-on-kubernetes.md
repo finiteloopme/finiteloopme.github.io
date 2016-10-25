@@ -81,76 +81,77 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```bash
    oc login -u developer
    ```
-   
+
 3. Download the docker-compose file for the starter-kit
-    ```bash
-    wget -O docker-compose-fabric-starter-kit.yml https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml
-    ```
-   
+   ```bash
+   wget -O docker-compose-fabric-starter-kit.yml https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml
+   ```
+
 4. Update the downloaded YAML file to ensure appropriate ports are *exposed*[^4].
 
-    ```YAML
-    # updated snippet of docker-compose-fabric-starter-kit.yml
-    membersrvc:
-      ports:
-      - "7054:7054"
+   ```YAML
+   # updated snippet of docker-compose-fabric-starter-kit.yml
+   membersrvc:
+     ports:
+     - "7054:7054"
 
-    peer:
-      ports:
-      - "7051:7051"
+   peer:
+     ports:
+     - "7051:7051"
    ```
+
 5. Import the docker-compose application into OpenShift
-    ```bash
-    oc import docker-compose -f docker-compose-fabric-starter-kit.yml
-    ```
-   
+   ```bash
+   oc import docker-compose -f docker-compose-fabric-starter-kit.yml
+   ```
+
 6. Allow _member service_ to be executed with _root_ status
-    ```bash
-    oc patch dc membersrvc -p '{"spec":{"template":{"spec":{"containers":[{"name":"membersrvc","securityContext":{"privileged":true}}]}}}}'
-    ```
-   
+   ```bash
+   oc patch dc membersrvc -p '{"spec":{"template":{"spec":{"containers":[{"name":"membersrvc","securityContext":{"privileged":true}}]}}}}'
+   ```
+
 7. Allow validating peer service _vp0_ to be executed with _root_ status
-    ```bash
-    oc patch dc vp0 -p '{"spec":{"template":{"spec":{"containers":[{"name":"vp0","securityContext":{"privileged":true}}]}}}}'
-    ```
-   
+   ```bash
+   oc patch dc vp0 -p '{"spec":{"template":{"spec":{"containers":[{"name":"vp0","securityContext":{"privileged":true}}]}}}}'
+   ```
+
 8. Give the system couple of minutes to startup the required containers.  Then ensure that all the services are up and running.
-    ```bash
-    oc get pods
-    ```
-    >Result should be similar to below:  
-    ```bash
-    NAME                 READY     STATUS    RESTARTS   AGE  
-    membersrvc-2-3ft1y   1/1       Running   0          16m  
-    peer-2-3p43z         1/1       Running   0          15m  
-    starter-1-h8z1d      1/1       Running   1          16m  
-    ```
+   ```bash
+   oc get pods
+   ```
+   >Result should be similar to below:  
+   ```bash
+   NAME                 READY     STATUS    RESTARTS   AGE  
+   membersrvc-2-3ft1y   1/1       Running   0          16m  
+   peer-2-3p43z         1/1       Running   0          15m  
+   starter-1-h8z1d      1/1       Running   1          16m  
+   ```
    
    1. <kbd>membersrvc-2-3ft1y</kbd> is the member service
    2. <kbd>peer-2-3p43z</kbd> is the validating peer service
    3. <kbd>starter-1-h8z1d</kbd> is the fabric-starter-kit service
-   
+
 9. Deploy and execute the sample *chaincode[^5]* using Node.js Client SDK within the fabric-starter-kit
-    ```bash
-    oc exec starter-1-h8z1d node app
-    ```
-    >Result should be similar to below:  
-    ```bash
-    *** starting HFC sample ***
-    member services address =membersrvc:7054
-    peer address =peer:7051
-    DEPLOY_MODE=dev
-    enrolling user admin ...
-    Enrolled JohnDoe successfully
-    deploying chaincode; please wait ...
-    deploy complete; results: {"uuid":"mycc","chaincodeID":"mycc"}
-    invoke chaincode ...
-    invoke submitted successfully; results={"uuid":"85782c59-e192-499f-8a5d-108c4423133d"}
-    invoke completed successfully; results={"result":"Tx 85782c59-e192-499f-8a5d-108c4423133d complete"}
-    querying chaincode ...
-    query completed successfully; results={"result":{"type":"Buffer","data":[57,55]}}
-    ```
-   
+   ```bash
+   oc exec starter-1-h8z1d node app
+   ```
+   >Result should be similar to below:  
+   ```bash
+   *** starting HFC sample ***
+   member services address =membersrvc:7054
+   peer address =peer:7051
+   DEPLOY_MODE=dev
+   enrolling user admin ...
+   Enrolled JohnDoe successfully
+  deploying chaincode; please wait ...
+   deploy complete; results: {"uuid":"mycc","chaincodeID":"mycc"}
+   invoke chaincode ...
+   invoke submitted successfully; results={"uuid":"85782c59-e192-499f-8a5d-108c4423133d"}
+   invoke completed successfully; results={"result":"Tx 85782c59-e192-499f-8a5d-108c4423133d complete"}
+   querying chaincode ...
+   query completed successfully; results={"result":{"type":"Buffer","data":[57,55]}}
+   ```
+
 10. Investigate logs for the peer validating service
     ```bash
     oc logs peer-2-3p43z
