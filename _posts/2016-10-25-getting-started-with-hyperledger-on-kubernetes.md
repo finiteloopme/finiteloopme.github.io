@@ -81,10 +81,12 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```bash
    oc login -u developer
    ```
+   
 3. Download the docker-compose file for the starter-kit
    ```bash
    wget -O docker-compose-fabric-starter-kit.yml https://raw.githubusercontent.com/hyperledger/fabric/master/examples/sdk/node/docker-compose.yml
    ```
+   
 4. Update the downloaded YAML file to ensure appropriate ports are *exposed*[^4].
 
    ```YAML
@@ -101,14 +103,17 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    ```bash
    oc import docker-compose -f docker-compose-fabric-starter-kit.yml
    ```
+   
 6. Allow _member service_ to be executed with _root_ status
    ```bash
    oc patch dc membersrvc -p '{"spec":{"template":{"spec":{"containers":[{"name":"membersrvc","securityContext":{"privileged":true}}]}}}}'
    ```
+   
 7. Allow validating peer service _vp0_ to be executed with _root_ status
    ```bash
    oc patch dc vp0 -p '{"spec":{"template":{"spec":{"containers":[{"name":"vp0","securityContext":{"privileged":true}}]}}}}'
    ```
+   
 8. Give the system couple of minutes to startup the required containers.  Then ensure that all the services are up and running.
    ```bash
    oc get pods
@@ -145,6 +150,7 @@ I am using <kbd>macOS Sierra</kbd> for development, with following configuration
    querying chaincode ...
    query completed successfully; results={"result":{"type":"Buffer","data":[57,55]}}
    ```
+   
 10. Investigate logs for the peer validating service
     ```bash
     oc logs peer-2-3p43z
