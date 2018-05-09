@@ -33,7 +33,7 @@ A key advantage of _containerising_ application is that the image (template for 
 ### Caching
 ![Caching within a POD](../img/2018/05/pod-cache.png)
 
-The diagram above gives a highlevel view of a [POD](2) with an application container and a caching container.  The idea is to cache relevant information into the container providing caching capability.
+The diagram above gives a highlevel view of a [POD][2] with an application container and a caching container.  The idea is to cache relevant information into the container providing caching capability.
 
 Scaling the application is as simple as scaling the POD and it will automatically scale the cache.  Point to note is that the cache is native to the specific application container running in the same POD as the application container itself.
 
