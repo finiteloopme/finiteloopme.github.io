@@ -11,14 +11,14 @@ tags:
 
 # Security Essentials in a Digital World
 
-# What does being Digital mean
+## What does being Digital mean
 Companies are either being disrupted or transforming themselves to be digital businesses.  The core purpose of this transformation is to develop the capability to innovate at speed to compete and win.
 
 And the changes this transformation introduces are more than just the technology.  In order to truly transform into an agile and responsive business, requires change from both business and IT.  In simple terms this would mean changes to how services (both business and technical) are designed, built, deployed and accessed by the customer.  So essentially changing the company's operatinal model.
 
 As companies fundamentatly change, how they do business it has an impact on security and compliance policies.  Older security models and compliance policies don't work with emerging technologies and modern agile practices.
 
-# Security landscape
+## Security landscape
 The security landspace is changing.  The cost in security breaches are significant.  The hard cost of patching servers, and potentially a bit harder to measure but the lost revenue in terms of disruption to the business services.  Though the most significant is the loss of customer trust and the damage caused to the brand of the company. 
 
 So, investment to prevent and contain breaches is highly essential. But you need to ensure the dollar is spent in the right way and on the right tools -- tools that work with the new way of building applications, help you manage new types of workloads and integrate with the new processes that enable digital journey. 
@@ -46,7 +46,7 @@ To do this effectively, you need to integrate security experts into your applica
 
 Security must be a continuous, ongoing activity.  Revise and update your policies & governance as the landscape changes.
 
-# Security and Open Source
+## Security and Open Source
 Open source software is driving this digital transformation.  There are millions of open source projects.
 
 So it is critical to understand the journey of open source code from _upstream_ into community projects customer implementation.  Some of the milestones in this journey are:
