@@ -39,6 +39,13 @@ Three key advantages offered by _policy enablement_ are:
 
 _Policy management_ is especially important given the distributed and transient nature of cloud native of microservices based applications.  How the service interacts with _policy engine_ is important.  But just as important if not more important is the ability to author and manage polcies independently of the microservices.
 
+> This article views _OPA_ as an implementation of _Policy Enablement_ technique so uses these terms interchangably.
+
+## Few applications of Policy Enabled Services
+1. Secure _HTTP API_ using authorisation
+2. [Kubernetes Admission Control][4] enforces semantic validation of objects during [CRUD][5] operations.  OPA can enforce custom policies on Kubernetes objects without recompiling or reconfiguring the Kubernetes API server.
+3. Managing policies (security, routing, etc) in [Istio][6] using [OPA adapter][7]
+
 ## An Example of context being used in policy mangement
 
 An _organisation_ has grouped their employees as below.  
@@ -144,6 +151,10 @@ data.opa.deploy.can_deploy("dev", 7, c)
 [1]: https://www.openpolicyagent.org/
 [2]: https://www.openpolicyagent.org/docs/#what-is-policy-enablement
 [3]: https://www.openpolicyagent.org/docs/how-do-i-write-policies.html
+[4]: https://kubernetes.io/docs/admin/admission-controllers/#what-are-they
+[5]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+[6]: https://istio.io
+[7]: https://istio.io/docs/reference/config/adapters/opa.html
 
 ---
 
