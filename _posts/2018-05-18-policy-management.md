@@ -30,12 +30,14 @@ Traditionally policies have been applied manually based on documented rules or u
 [Open Policy Agent][1] project highlights the notion of _[Policy Enablment][2]_.
 >Policy-enabled services allow policies to be specified declaratively, updated at any time without recompiling or redeploying, and enforced automatically (which is especially valuable when decisions need to be made faster than humanly possible). 
 
-### Why Policy Enablement
+## Why Policy Enablement
 
 Three key advantages offered by _policy enablement_ are:
 1. Decoupling of _policy evaluation_ from the service seeking to comply with that polciy allows for the lifecylce of the policy to be managed independently of the service.
 2. Ability to declaratively create and apply the policies. As an example use of _declarative logic programming language_ like [Rego][3] empowers users to read, write, and manage these rules without needing specialized development or operational expertise.
 3. _Queries_ (policies) under consideration and the correspnding _data set_ can be easily input to the policy engine at runtime.  This allows promotes _automated testing_ of the policies.
+
+_Policy management_ is especially important given the distributed and transient nature of cloud native of microservices based applications.  How the service interacts with _policy engine_ is important.  But just as important if not more important is the ability to author and manage polcies independently of the microservices.
 
 ## An Example of context being used in policy mangement
 
