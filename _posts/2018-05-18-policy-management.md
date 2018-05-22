@@ -95,7 +95,7 @@ cat >users.json <<EOF
 EOF
 ```
 
-```s
+```
 cat >deploy.rego <<EOF
 package opa.deploy
 
@@ -125,6 +125,13 @@ EOF
 ```
 
 ```bash
+# Copy and paste the above two commands in a "terminal" to create the required files.
+# - users.json lists corporate users and on_call users
+# - deploy.rego query which outlines the 'deployment' policy
+
+# Launch OPA
+./opa run users.json deploy.rego
+
 # Should return `c = true`
 data.opa.deploy.can_deploy("dev", 2, c)
 
