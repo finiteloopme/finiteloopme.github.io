@@ -145,4 +145,4 @@ data.opa.deploy.can_deploy("dev", 7, c)
 
 ---
 
-[^1]: https://www.openpolicyagent.org/docs/get-started.html#prerequisites
+[^1]: [Get started guide](https://www.openpolicyagent.org/docs/get-started.html) for OPA outlines the required [pre-requisites](https://www.openpolicyagent.org/docs/get-started.html#prerequisites)
