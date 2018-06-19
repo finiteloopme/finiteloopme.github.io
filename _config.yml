@@ -12,7 +12,7 @@ whiltelist: []
 gems: [jekyll-paginate, jekyll-watch]
 
 # Build settings
-baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
+baseurl: "" # Change this to your relative path (ex: /blog/), or leave just a /
 source: .
 destination: ./_site
 permalink: /:title
