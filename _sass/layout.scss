@@ -229,7 +229,8 @@ code {
     color: $text-color;
   }
   a:hover {
-    background-color: lighten($main-color, 5%);
+    background-color: lighten($main-color, 50%);
+    color: darken($main-color, 5%);
   }
 }
 .page-item {
