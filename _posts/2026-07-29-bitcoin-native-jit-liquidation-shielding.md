@@ -20,11 +20,9 @@ Babylon's **Trustless Bitcoin Vaults (TBV)** let you lock native Bitcoin on Bitc
 
 This post proposes a defensive layer built *on top of* TBV that flips that dynamic: instead of paying tens of thousands of dollars to a liquidator who destroys your position, you pay a small fee to a keeper who **saves** it — by injecting a pre-signed, just-in-time collateral top-up *before* the breach. I will walk through the full architecture, and I will be equally clear about the single hardest thing that has to be true for it to work.
 
-> **Open research question — prediction validation.**  
+> **Open research question**  
 > The mechanism relies on forecasting when a position is about to enter the danger zone, across both a ~15-minute macro horizon and a sub-minute micro horizon. Sub-minute directional prediction of BTC microstructure is **not** an established, out-of-the-box capability. General time-series models (TimesFM, Chronos) and vector-ANN pattern matching are promising, but this needs empirical validation on historical flash-crash data before anyone should believe a precision number.
->
 > Critically: when centralized-exchange prices drop but the on-chain oracle has not updated yet, the oracle is *lagging* — which means the liquidators cannot act yet either. So the window where a forecast is both *correct* and *actionable ahead of liquidators* has to be characterized empirically, not assumed.
->
 > The design's saving grace is asymmetry: a false-positive top-up is cheap (tens of dollars), while a true positive saves ~$18,600 on a $1M loan. That turns prediction accuracy from a single point of failure into a tunable, risk-managed parameter — a **high-recall / moderate-precision** filter rather than a crystal ball.
 
 With that on the table, here is how the system works.
