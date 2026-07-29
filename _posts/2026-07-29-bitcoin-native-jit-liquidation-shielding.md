@@ -2,6 +2,7 @@
 layout: post
 title: "Bitcoin-Native JIT Liquidation Shielding on Babylon TBV"
 published: true
+comments: true
 categories:
     - technical
 tags:
@@ -15,17 +16,12 @@ tags:
 
 *A system-design writeup for review — including an honest account of what's still unproven.*
 
-## The idea in one paragraph
-
-Babylon's **Trustless Bitcoin Vaults (TBV)** let you lock native Bitcoin on Bitcoin mainnet and use it as collateral to borrow on EVM protocols like Aave V4 — with no wrapping, no bridge, and no custodian. It is one of the most important primitives in Bitcoin DeFi. But it inherits DeFi's oldest structural flaw: during a temporary flash crash, opportunistic liquidators seize your collateral the instant your Health Factor dips below 1.00 and extract a 5–10% penalty from your equity — even if the price fully recovers an hour later.
+Babylon's **Trustless Bitcoin Vaults (TBV)** let you lock native Bitcoin on Bitcoin mainnet and use it as a collateral to borrow on EVM protocols like Aave V4 — with no wrapping, no bridge, and no custodian. It is one of the most important primitives in Bitcoin DeFi. But it inherits DeFi's oldest structural flaw: during a temporary flash crash, opportunistic liquidators seize your collateral the instant your Health Factor dips below 1.00 and extract a 5–10% penalty from your equity — even if the price fully recovers an hour later.
 
 This post proposes a defensive layer built *on top of* TBV that flips that dynamic: instead of paying tens of thousands of dollars to a liquidator who destroys your position, you pay a small fee to a keeper who **saves** it — by injecting a pre-signed, just-in-time collateral top-up *before* the breach. I will walk through the full architecture, and I will be equally clear about the single hardest thing that has to be true for it to work.
 
-## An honest caveat, up front
-
-I want to lead with the weakest link rather than bury it, because it is the thing worth discussing openly.
-
-> **Open research question — prediction validation.** The mechanism relies on forecasting when a position is about to enter the danger zone, across both a ~15-minute macro horizon and a sub-minute micro horizon. Sub-minute directional prediction of BTC microstructure is **not** an established, out-of-the-box capability. General time-series models (TimesFM, Chronos) and vector-ANN pattern matching are promising, but this needs empirical validation on historical flash-crash data before anyone should believe a precision number.
+> **Open research question — prediction validation.**  
+> The mechanism relies on forecasting when a position is about to enter the danger zone, across both a ~15-minute macro horizon and a sub-minute micro horizon. Sub-minute directional prediction of BTC microstructure is **not** an established, out-of-the-box capability. General time-series models (TimesFM, Chronos) and vector-ANN pattern matching are promising, but this needs empirical validation on historical flash-crash data before anyone should believe a precision number.
 >
 > Critically: when centralized-exchange prices drop but the on-chain oracle has not updated yet, the oracle is *lagging* — which means the liquidators cannot act yet either. So the window where a forecast is both *correct* and *actionable ahead of liquidators* has to be characterized empirically, not assumed.
 >
